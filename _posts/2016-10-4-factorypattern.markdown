@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      "Java设计模式之工厂模式"
+title:      "Java设计模式之工厂模式-todo"
 subtitle:   " \"最常用的java设计模式.\""
-date:       2016-11-206 21:55:00
+date:       2016-11-06 21:55:00
 author:     "WangChongjie"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
