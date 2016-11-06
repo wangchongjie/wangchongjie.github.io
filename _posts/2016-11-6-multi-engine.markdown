@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "并行计算组件 MultiEngine"
+title:      "并行计算组件MultiEngine框架"
 subtitle:   " \"之自研框架Manual.\""
 date:       2016-11-06 22:55:00
 author:     "WangChongjie"
@@ -9,7 +9,7 @@ catalog: true
 tags:
     - 开源框架
 ---
-项目实践中，我们经常会遇到单机并行或分布式并行可以大幅提升系统整体性能的场景。但由于受限于线程模型、锁机制等相对较为复杂，并行化改造的成本较高。multi-engine系列组件提供轻量级的开箱即用的功能，并且单机模型已在生产环境得到大量应用，并带来可观的性能收益。本文介绍并行计算multi-engine系列组件的使用说明。本文目录如下：
+项目实践中，我们经常会遇到单机并行或分布式并行可以大幅提升系统整体性能的场景。但由于受限于线程模型、锁机制等相对较为复杂，并行化改造的成本较高。multi-engine系列组件提供轻量级的开箱即用的并行化支持特性，并且单机模型已在生产环境得到大量应用，并带来可观的性能收益。本文介绍并行计算multi-engine系列组件的使用说明，源码已托管于github，且稳定版本已发布至Maven中央仓库，可直接使用。本文目录如下：
 
 # 目录
 
@@ -65,6 +65,7 @@ Cluster-support组件是multi-engine的功能扩展，为multi-engine提供第�
 
 ## 3.1.1 配置maven
 业务应用方需要依赖multi-task、multi-engine、cluster-support等模块（按需所取），该模块用maven进行源代码管理，在pom.xml中加入dependency：
+
 ```xml
 		<dependency>
 			<groupId>com.baidu.unbiz</groupId>
@@ -82,6 +83,7 @@ Cluster-support组件是multi-engine的功能扩展，为multi-engine提供第�
 			<version>1.0.0</version>
 		</dependency>
 ```
+
 通过mvn dependency:tree命令分析，multi-task依赖以下三方库：
 [INFO] com.baidu.unbiz:multi-task:jar:1.0.1
 [INFO] +- commons-lang:commons-lang:jar:2.4:compile
