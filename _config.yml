@@ -85,11 +85,11 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 friends:
   [
   {
-        title: "Storm Zhang",
-        href: "http://stormzhang.com/"
+        title: "TODO1",
+        href: "http://baidu.com/"
     },
   {
-        title: "Dandy Weng",
-        href: "https://www.dandyweng.com/"
+        title: "TODO2",
+        href: "http://baidu.com/"
     }
 ]
