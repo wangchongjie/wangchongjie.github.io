@@ -2,8 +2,8 @@
 layout:     post
 title:      "Java设计模式之单例模式"
 subtitle:   " \"the singleton pattern is a design pattern that restricts the instantiation of a class to one object.\""
-date:       2016-09-25 14:00:00
-author:     "FengZhao"
+date:       2016-11-206 21:55:00
+author:     "WangChongjie"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
 tags:
