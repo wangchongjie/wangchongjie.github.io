@@ -63,7 +63,7 @@ Cluster-support组件是multi-engine的功能扩展，为multi-engine提供第�
 服务应用方需要依赖multi-task、multi-engine、cluster-support，该模块见github的相关目录：
 
 ## 3.1.1 配置maven
-业务应用方需要依赖multi-task、multi-engine、cluster-support等模块（按需所取），该模块用maven进行源代码管理，在pom.xml中加入dependency：
+业务应用方需要依赖multi-task、multi-engine、cluster-support等模块（按需所取），该模块用maven进行源代码管理，在pom.xml中加入dependency： 
 ```xml
       <dependency>
          <groupId>com.baidu.unbiz</groupId>
@@ -81,7 +81,7 @@ Cluster-support组件是multi-engine的功能扩展，为multi-engine提供第�
          <version>1.0.0</version>
       </dependency>
 ```
-通过mvn dependency:tree命令分析，multi-task依赖以下三方库：
+通过mvn dependency:tree命令分析，multi-task依赖以下三方库： 
 [INFO] com.baidu.unbiz:multi-task:jar:1.0.1
 [INFO] +- commons-lang:commons-lang:jar:2.4:compile
 [INFO] +- org.springframework:spring-context:jar:4.1.7.RELEASE:compile
