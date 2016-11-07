@@ -12,7 +12,7 @@ baseurl: ""                             # for example, '/blog' if your blog host
 
 # SNS settings
 RSS: false
-weibo_username:     Jay王崇杰
+weibo_username:     Jay_fighting
 zhihu_username:     wangchongjie
 github_username:    wangchongjie
 twitter_username:   wangchongjie
@@ -43,17 +43,15 @@ gems: [jekyll-paginate]
 # document: http://jekyllrb.com/docs/configuration/#kramdown
 markdown: redcarpet
 redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
-#kramdown:
   input: GFM                            # use Github Flavored Markdown !important
 
 
 
 # Disqus settings
-disqus_username: chongjie
+disqus_username: chongjielog
 
 # Duoshuo settings
-duoshuo_username: chongjie
+duoshuo_username: chongjielog
 # Share component is depend on Comment so we can NOT use share only.
 duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
