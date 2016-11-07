@@ -82,7 +82,6 @@ Cluster-support组件是multi-engine的功能扩展，为multi-engine提供第�
 		</dependency>
 ```
 通过mvn dependency:tree命令分析，multi-task依赖以下三方库：
-```log
 [INFO] com.baidu.unbiz:multi-task:jar:1.0.1
 [INFO] +- commons-lang:commons-lang:jar:2.4:compile
 [INFO] +- org.springframework:spring-context:jar:4.1.7.RELEASE:compile
@@ -101,7 +100,6 @@ Cluster-support组件是multi-engine的功能扩展，为multi-engine提供第�
 [INFO] \- org.jmock:jmock-junit4:jar:2.5.1:test
 [INFO]    \- org.jmock:jmock:jar:2.5.1:test
 [INFO]       \- org.hamcrest:hamcrest-library:jar:1.1:test
-```
 
 Multi-engine、cluster-support的依赖Jar不一一列举，可以mvn dependency:tree命令分析。
 ## 3.1.2 配置线程资源
