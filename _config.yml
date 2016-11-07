@@ -70,7 +70,7 @@ ga_domain:
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "The quieter you become, the more you hear"
+sidebar-about-description: "百度资深攻城狮"
 sidebar-avatar: /img/chongjie.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
