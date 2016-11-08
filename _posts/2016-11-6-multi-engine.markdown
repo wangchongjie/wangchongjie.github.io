@@ -307,13 +307,15 @@ TaskContext.attachThreadLocal(MyThreadLocal.instance());
 该报表请求会查4份数据，分别耗时：18ms、28ms、29ms、31ms，总时间为106ms。但应用并行化组件multi-task后，仅耗时32ms即完成了该次请求。
 
 ## 6.2 Amdahl加速定律
+
+```xml
 S = 1 / ( 1 – a + a / n )
 S:  并行处理效果的加速比
 a:   并行计算部分所占比例
 n:   并行处理结点个数
 最小加速比s=1
 n→∞,极限加速比为1/（1-a）
-
+```
 例：若串行代码占整个代码的25%，则并行处理的总体性能不可能超过4。
 
 总之，林林总总，写了很多，更多示例可以参考test case （https://github.com/wangchongjie/multi-task/tree/master/src/test/java/com/baidu/unbiz/multitask/demo/test），欢迎沟通交流。
