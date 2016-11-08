@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Java Open-Source framework MultiTask"
-subtitle:   " \"Quick Start Manual.\""
+subtitle:   " \"Quick Start & Manual.\""
 date:       2016-11-01 22:55:00
 author:     "WangChongjie"
 header-img: "img/post-bg-2015.jpg"
