@@ -12,6 +12,7 @@ tags:
 项目实践中，我们经常会遇到单机并行或分布式并行可以大幅提升系统整体性能的场景。但由于受限于线程模型、锁机制等相对较为复杂，并行化改造的成本较高。multi-engine系列组件提供轻量级的开箱即用的并行化支持特性，并且单机模型已在生产环境得到大量应用，并带来可观的性能收益。本文介绍并行计算multi-engine系列组件的使用说明，源码已托管于github，且稳定版本已发布至Maven中央仓库，可直接使用。
 
 ## 1.   Multi-Engine介绍
+
 ## 1.1 multi-engine是什么
 Multi-engine是分布式多任务并行处理的基础组件：可通过Java注解对原有业务代码几乎无侵入地实现并行化，由multi-task、multi-engine、cluster-support三个独立可插拔的组件组成。各组件一起组合使用，也可根据所需feature独立使用其中的一两个组件。
 
@@ -19,6 +20,7 @@ Multi-engine是分布式多任务并行处理的基础组件：可通过Java注�
 
 Multi-engine可理解为与业务无关的单机或分布式计算模型封装，为“多任务处理引擎”。是一个轻量级的并行处理组件。重点应用场景为传统web或cron代码的单机或集群化并行计算，不解决T级别海量数据处理或弹性分布式数据集等问题（后者有更好的工具支持，如spark、hadoop等）。
 ## 1.2 multi-engine功能概述
+
 1、multi-task组件
 Multi-task组件为基础组件，提供单机多线程的并行处理模型，并预留用户自定义扩展接口。该组件封装了task定义的方式（接口或注解）、单机同构并行计算或异构计算等。作为容器持有了用户标注的可并行处理的task。该组件可独立使用，提供单机多任务处理的能力。
 
@@ -30,6 +32,7 @@ Cluster-support组件是multi-engine的功能扩展，为multi-engine提供第�
 
 以上3个组件为预实现的组件，设计思路为可插拔、插件化支持。用户也可根据需求扩展已有组件。
 ## 2.   设计架构
+
 广义上的Multi-Engine采用插件化的设计，由multi-task、multi-engine、cluster-support三个组件构成。各组件对应主要职责划分如下：
 
 以上组件有3种使用方式：
@@ -41,11 +44,14 @@ Cluster-support组件是multi-engine的功能扩展，为multi-engine提供第�
 
 框架的设计初衷是，尽量不改变用户的编程习惯（少侵入），使得用户轻松开发并行化的业务代码，提升改善系统的性能。
 ## 3.   使用方式
+
 为了快速了解multi-engine如何使用，我们来做一个简单的hello world。
 ## 3.1 准备工作
+
 服务应用方需要依赖multi-task、multi-engine、cluster-support，该模块见github的相关目录.
 
 ## 3.1.1 配置maven
+
 业务应用方需要依赖multi-task、multi-engine、cluster-support等模块（按需所取），该模块用maven进行源代码管理，在pom.xml中加入dependency： 
 ```xml
       <dependency>
