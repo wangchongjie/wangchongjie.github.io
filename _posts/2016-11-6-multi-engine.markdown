@@ -52,6 +52,7 @@ Cluster-support组件是multi-engine的功能扩展，为multi-engine提供第�
 
 ## 3.1.1 配置maven
 业务应用方需要依赖multi-task、multi-engine、cluster-support等模块（按需所取），该模块用maven进行源代码管理，在pom.xml中加入dependency： 
+
 ```xml
       <dependency>
          <groupId>com.baidu.unbiz</groupId>
