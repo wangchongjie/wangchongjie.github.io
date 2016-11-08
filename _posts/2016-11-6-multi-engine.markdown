@@ -303,7 +303,6 @@ TaskContext.attachThreadLocal(MyThreadLocal.instance());
 
 ## 6.1 生产环境实战效果
 线上生产环境的cpu核数较多，以线上某报表服务的机器为例，有24个处理器：
-
 该报表请求会查4份数据，分别耗时：18ms、28ms、29ms、31ms，总时间为106ms。但应用并行化组件multi-task后，仅耗时32ms即完成了该次请求。
 
 ## 6.2 Amdahl加速定律
@@ -318,4 +317,4 @@ n→∞,极限加速比为1/（1-a）
 ```
 例：若串行代码占整个代码的25%，则并行处理的总体性能不可能超过4。
 
-总之，林林总总，写了很多，更多示例可以参考test case （https://github.com/wangchongjie/multi-task/tree/master/src/test/java/com/baidu/unbiz/multitask/demo/test），欢迎沟通交流。
+总之，林林总总，写了很多，更多示例可以参考test case（https://github.com/wangchongjie/multi-task/tree/master/src/test/java/com/baidu/unbiz/multitask/demo/test），欢迎沟通交流。
