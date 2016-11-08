@@ -315,4 +315,5 @@ n:   并行处理结点个数
 n→∞,极限加速比为1/（1-a）
 
 例：若串行代码占整个代码的25%，则并行处理的总体性能不可能超过4。
+
 总之，林林总总，写了很多，更多示例可以参考test case （https://github.com/wangchongjie/multi-task/tree/master/src/test/java/com/baidu/unbiz/multitask/demo/test），欢迎沟通交流。
