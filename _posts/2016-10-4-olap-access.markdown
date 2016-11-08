@@ -54,7 +54,7 @@ Olap-access可理解为与业务无关的报表DAO层封装，为“olap入口�
 
 # 2 Olap-access应用示例
 
-报表建模示例如下：
+Olap-access框架的报表建模示例如下：
 
 ```java
 @OlapTable(
@@ -94,7 +94,8 @@ private Sting groupName;//推广组名称
 // GETTER & SETTER 方法略
 ```
 
-业务开发应用示例如下：
+Olap-access的业务开发应用示例如下：
+
 ```java
 @Service
 public class GroupStatServiceImpl extends AbstractOlapService implements GroupStatService {
