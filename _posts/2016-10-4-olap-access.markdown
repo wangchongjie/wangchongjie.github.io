@@ -9,8 +9,8 @@ catalog: true
 tags:
     - ORM框架
 ---
-各类用户产品和商业产品都会有大量的报表，而对于OLAP类型的报表，无论其存储或上层查询模式均与传统的RDBMS体系有较大区别。Olap
--access是报表领域模型的ORM框架，旨在提升用户的开发效率，只需关注报表建模，其余逻辑由底层框架来支持。
+业界各类用户产品和商业产品都会有大量的报表，而对于OLAP类型的报表，无论其存储介质应用或上层查询模式均与传统的RDBMS
+体系有较大区别。Olap-access是报表领域模型的ORM框架，旨在提升用户的开发效率，只需关注报表建模，其余逻辑由底层框架来支持。
 
 ## Olap-access介绍
 
@@ -52,3 +52,74 @@ Olap-access可理解为与业务无关的报表DAO层封装，为“olap入口�
 	系统可扩展性差，性能受到限制
 ```
 
+# 2 Olap-access应用示例
+
+报表建模示例如下：
+
+```java
+@OlapTable(
+	name=Constants.TABLE.GROUP, 
+	keyVal= {Constants.COLUMN.PLANID, Constants.COLUMN.GROUPID}, 
+	basicVal = {Constants.COLUMN.SRCHS, Constants.COLUMN.CLKS},
+	extCol = {Constants.COLUMN.CTR}, 
+	extExpr = {Constants.EXPR.CTR}
+)
+public class GroupViewItem extends BaseItem {	
+
+	@OlapColumn(Constants.COLUMN.PLANID)
+	private Integer planId;
+	
+	@OlapColumn(Constants.COLUMN.GROUPID)
+	private Integer groupId;
+	
+	@OlapColumn(Constants.COLUMN.SRCHS)
+	private long srchs;//展现
+	
+	@OlapColumn(Constants.COLUMN.CLKS)
+	private long clks;//点击
+	
+	@OlapColumn(Constants.COLUMN.CTR)
+	private BigDecimal ctr;//点击率
+	
+private Sting planName;//计划名称
+private Sting groupName;//推广组名称
+
+	@Override
+	public void afterAssemble(int timeUnit){
+		super.afterAssemble(timeUnit);
+		// DO OTHER THINGS
+	}
+}
+
+// GETTER & SETTER 方法略
+```
+
+业务开发应用示例如下：
+```java
+@Service
+public class GroupStatServiceImpl extends AbstractOlapService implements GroupStatService {
+
+@Override
+public List<GroupViewItem> queryGroupData(int userId,List<Integer> planIds, List<Integer> groupIds, Date from, Date to,String column, int order, int timeUnit) {
+
+List<String> filters = new LinkedList<String>();
+OlapUtils.makeNumberFilter(filters,Constants.COLUMN.PLANID,planIds);
+OlapUtils.makeNumberFilter(filters,Constants.COLUMN.GROUPID,groupIds;
+
+ReportRequest<GroupViewItem> rr = new ReportRequestBuilder<GroupViewItem>(){}
+				.setUserId(userId)
+				.setFrom(from)
+				.setTo(to)
+				.setTimeUnit(timeUnit)
+				.setColumn(column)
+				.setOrder(SortOrder.val(order))
+				.setFilters(filters)
+				.build();
+
+		return super.getStorageData(rr);
+	}
+}
+```
+
+由示例可见，用户只需对报表领域模型建模，进行@OlapTable和@OlapColumn注解标注。便可直接使用可扩展的Olap
+查询接口，完成报表数据的ORM映射、路由、检索、缓存等处理，极大地提升了报表的开发效率。
