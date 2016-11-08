@@ -1,138 +1,286 @@
 ---
 layout:     post
-title:      "Java设计模式之单例模式-todo"
-subtitle:   " \"the singleton pattern is a design pattern that restricts the instantiation of a class to one object.\""
-date:       2016-11-06 21:55:00
+title:      "并行计算组件MultiEngine框架"
+subtitle:   " \"之自研框架Manual.\""
+date:       2016-11-06 22:55:00
 author:     "WangChongjie"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
 tags:
-    - 设计模式
+    - 开源框架
 ---
-单例模式作为最简单的设计模式，也是面试中经常会被问到的，笔者在刚学java没多久的时候，就曾经在面试中被要求手写一个单例模式，于是写下这篇文章，来整理几种单例的写法。
+项目实践中，我们经常会遇到单机并行或分布式并行可以大幅提升系统整体性能的场景。但由于受限于线程模型、锁机制等相对较为复杂，并行化改造的成本较高。multi-engine系列组件提供轻量级的开箱即用的并行化支持特性，并且单机模型已在生产环境得到大量应用，并带来可观的性能收益。本文介绍并行计算multi-engine系列组件的使用说明，源码已托管于github，且稳定版本已发布至Maven中央仓库，可直接使用。
+
+# 1.   Multi-Engine介绍
+## 1.1 multi-engine是什么
+Multi-engine是分布式多任务并行处理的基础组件：可通过Java注解对原有业务代码几乎无侵入地实现并行化，由multi-task、multi-engine、cluster-support三个独立可插拔的组件组成。各组件一起组合使用，也可根据所需feature独立使用其中的一两个组件。
 
-## 什么是单例模式？
+该组件设计初衷是：为传统业务代码提供单机或集群并行处理的利器。应用方无需关心线程、锁、资源、通信、分布式故障等问题。而将工作重心更多地关注业务开发即可。遵循Amdahl加速定律，改善提升系统的处理效率，降低响应延迟。
 
-我们来看看维基百科的定义：
+Multi-engine可理解为与业务无关的单机或分布式计算模型封装，为“多任务处理引擎”。是一个轻量级的并行处理组件。重点应用场景为传统web或cron代码的单机或集群化并行计算，不解决T级别海量数据处理或弹性分布式数据集等问题（后者有更好的工具支持，如spark、hadoop等）。
+## 1.2 multi-engine功能概述
+1、multi-task组件
+Multi-task组件为基础组件，提供单机多线程的并行处理模型，并预留用户自定义扩展接口。该组件封装了task定义的方式（接口或注解）、单机同构并行计算或异构计算等。作为容器持有了用户标注的可并行处理的task。该组件可独立使用，提供单机多任务处理的能力。
 
-> 单例模式，也叫单子模式，是一种常用的软件设计模式。在应用这个模式时，单例对象的类必须保证只有一个实例存在。许多时候整个系统只需要拥有一个的全局对象，这样有利于我们协调系统整体的行为。比如在某个服务器程序中，该服务器的配置信息存放在一个文件中，这些配置数据由一个单例对象统一读取，然后服务进程中的其他对象再通过这个单例对象获取这些配置信息。这种方式简化了在复杂环境下的配置管理。
+2、multi-engine组件
+Multi-engine组件是multi-task的功能扩展，为分布式版的multi-task组件。组件接口及计算模型与multi-task一致，应用时选用对应的并行池化执行组件即可。该组件结合multi-task组件，开箱即用：实现分布式并行处理（无需其它协调设施或db存储）。组件通过heartbeat和gossip协议，sync集群信息。
 
-简单的概括一下：意思就是我们系统中在实例化一个类的时候，希望这个类的对象是唯一的，不可以重复实例化。
+3、cluster-support组件
+Cluster-support组件是multi-engine的功能扩展，为multi-engine提供第三方元信息管理支持。可替代multi-engine原生的gossip信息同步。Cluster-support默认的分布式元信息管理是由Zookeeper实现的，用户也可自定义其它实现方式。以上3个组件一起使用时，需配置元信息管理的Zookeeper集群。 
 
-## 单例模式的设计思路
+以上3个组件为预实现的组件，设计思路为可插拔、插件化支持。用户也可根据需求扩展已有组件。
+# 2.   设计架构
+广义上的Multi-Engine采用插件化的设计，由multi-task、multi-engine、cluster-support三个组件构成。各组件对应主要职责划分如下：
 
-1.给要被实例化的类添加一个private构造函数，防止从外部通过new关键字来实例化该对象。
-2.给该类定义一个私有静态变量，创建这个类的唯一实例。
-3.在该类中定义一个静态方法，通过类名可以来获取该上面定义的实例。（必须是静态方法，通常使用getInstance这个名称）。
+以上组件有3种使用方式：
+*  Only multi-task：实现单机多线程版本的多任务并行处理。
+*  Multi-task + Multi-engine: 无需其它设施，实现分布式多任务并行处理。
+*  Multi-task + Multi-engine + Cluster-support: 实现Zookeeper方式协调的分布式多任务并行处理，需提供Zookeeper集群。
 
-思考：为什么第2步中定义的变量必须是静态的呢？
-因为我们在第三步是通过类的静态方法来返回这个变量，获取当前类的实例，如果不声明为静态变量，那么这个变量只有在当前类被实例化后才能被访问，我们就无法在第三步使用静态方法来访问这个变量，并返回了。
+通信协议层，组件为了尽量减少网络开销，降低协议头负载，自定义了一套字节传输协议，packHead+protostuff/protobuf/json。同时也支持NsHead协议，或扩展定制其它协议。
 
-## 饿汉式static final field
+框架的设计初衷是，尽量不改变用户的编程习惯（少侵入），使得用户轻松开发并行化的业务代码，提升改善系统的性能。
+# 3.   使用方式
+为了快速了解multi-engine如何使用，我们来做一个简单的hello world。
+## 3.1 准备工作
+服务应用方需要依赖multi-task、multi-engine、cluster-support，该模块见github的相关目录：
 
-饿汉式单例作为最简单的实现方式，通过上面的设计思路，我们可以很简单的设计出来。当初我被问到如何实现一个单例模式的时候，我第一反应是写了如下的代码，从Java编程思想中第六章中学到的一段代码。
-```java
-  public class Singleton{
-    private static final Singleton instance= new Singleton();
-    private Singleton (){}
-
-    public static Singleton getInstance() {
-
-     return instance;
-    }
-
-  }
+## 3.1.1 配置maven
+业务应用方需要依赖multi-task、multi-engine、cluster-support等模块（按需所取），该模块用maven进行源代码管理，在pom.xml中加入dependency： 
+```xml
+      <dependency>
+         <groupId>com.baidu.unbiz</groupId>
+         <artifactId>multi-task</artifactId>
+         <version>1.0.1</version>
+      </dependency>
+      <dependency>
+         <groupId>com.baidu.unbiz</groupId>
+         <artifactId>multi-engine</artifactId>
+         <version>1.0.0</version>
+      </dependency>
+      <dependency>
+         <groupId>com.baidu.unbiz</groupId>
+         <artifactId>cluster-support</artifactId>
+         <version>1.0.0</version>
+      </dependency>
 ```
-当类被加载时，静态变量instance会被初始化，此时类的私有构造函数会被调用，单例类的唯一实例将被创建。缺点是当类加载时会自动实例化。
+通过mvn dependency:tree命令分析，multi-task依赖以下三方库： 
+[INFO] com.baidu.unbiz:multi-task:jar:1.0.1
+[INFO] +- commons-lang:commons-lang:jar:2.4:compile
+[INFO] +- org.springframework:spring-context:jar:4.1.7.RELEASE:compile
+[INFO] |  +- org.springframework:spring-aop:jar:4.1.7.RELEASE:compile
+[INFO] |  |  \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  \- org.springframework:spring-expression:jar:4.1.7.RELEASE:compile
+[INFO] +- org.springframework:spring-test:jar:4.1.7.RELEASE:test
+[INFO] +- org.springframework:spring-beans:jar:4.1.7.RELEASE:compile
+[INFO] +- org.springframework:spring-core:jar:4.1.7.RELEASE:compile
+[INFO] |  \- commons-logging:commons-logging:jar:1.2:compile
+[INFO] +- ch.qos.logback:logback-core:jar:1.0.0:compile
+[INFO] +- ch.qos.logback:logback-classic:jar:1.0.0:compile
+[INFO] |  \- org.slf4j:slf4j-api:jar:1.6.4:compile
+[INFO] +- junit:junit:jar:4.11:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] \- org.jmock:jmock-junit4:jar:2.5.1:test
+[INFO]    \- org.jmock:jmock:jar:2.5.1:test
+[INFO]       \- org.hamcrest:hamcrest-library:jar:1.1:test
 
+Multi-engine、cluster-support的依赖Jar不一一列举，可以mvn dependency:tree命令分析。
+## 3.1.2 配置线程资源
+Multi-task如无特殊需求，可以零配置，组件会根据系统环境自动设置相关变量。如需自定义指定，可参考配置如下：
+```xml
+ <bean name="xmlThreadPoolConfig" class="com.baidu.unbiz.multitask.constants.XmlThreadPoolConfig">
+     <property name="coreTaskNum" value="12"/>
+     <property name="maxTaskNum" value="22"/>
+     <property name="maxCacheTaskNum" value="4"/>
+     <property name="queueFullSleepTime" value="10"/>
+     <property name="taskTimeoutMillSeconds" value="5000"/>
+ </bean>
 
-
-## 懒汉式，线程不安全
-
-如何解决上面的自动加载问题呢？我们使用懒汉式单例，在定义静态变量的时候并不初始化。这种技术被成为懒加载技术(Lazy initialization)，只有在需要的时候，才会通过getInstance方法来加载实例。
-
-```java
-  public class Singleton{
-    private static Singleton instance;
-    private Singleton (){}
-
-    public static Singleton getInstance() {
-     if (instance == null) {
-         instance = new Singleton();
-     }
-     return instance;
-    }
-
-  }
+ <bean name="simpleParallelExePool" class="com.baidu.unbiz.multitask.task.SimpleParallelExePool">
+     <constructor-arg ref="xmlThreadPoolConfig"/>
+ </bean>
 ```
-这段代码比较简单，但是存在致命问题，当有多个线程并行调用getInstance()的时候，还是会创建多个实例，也就是说在多线程下无法正常工作。
+## 3.1.3 配置服务地址及本地服务端口
+若选用multi-engine模块，需配置task服务地址及本机暴露的接口，相关配置如下：
+```xml
+<bean name="endpointSupervisor" class="com.baidu.unbiz.multiengine.endpoint.supervisor.DefaultEndpointSupervisor"
+      init-method="init" destroy-method="stop">
+    <property name="serverHost" value="127.0.0.1:8801;127.0.0.2:8802"/>
+    <property name="exportPort" value="8801"/>
+</bean>
+```
+其中，serverHost为集群所有机器的ip和端口（含本机）。exportPort为本机器实例对外暴露的接口。缺省的终端管理DefaultEndpointSupervisor是通过heartbeat和gossip同步集群信息的。
+## 3.1.4 Cluster-support配置
+若选用cluster-support模块，需配置ClusterEndpointSupervisor和zoo.cfg，相关配置如下：
+```xml
+   <bean name="endpointSupervisor" class="com.baidu.unbiz.multiengine.cluster.endpoint.supervisor.ClusterEndpointSupervisor"
+      init-method="init" destroy-method="stop">
+    <property name="exportPort" value="8801;8802"/>
+</bean>
+```
 
-## 懒汉式，线程安全
+tickTime=2000
+initLimit=10
+syncLimit=5
+dataDir=/tmp/zookeeper
+clientPort=8701
+clientPortAddress=xx.xx.xx.xx
+server.1=localhost:2888:3888
 
-为了解决上面的问题，避免多个线程同时调用getInstance方法，我们在getInstance方法前面增加一个关键字synchronized，来设置同步。
-
+## 3.1.5 配置logback
+Multi-engine推荐使用logback作为日志组件，在logback.xml中加入如下配置，默认level=”INFO”，如想打开multi-engine的debug模式可以设置level=”DEBUG”。
+```xml
+   <logger name="com.baidu.unbiz.multiengine" level="INFO" additivity="true">
+   </logger> 
+```
+# 3.2 应用方业务开发
+应用方demo代码，可以参考各模块的test目录：com.baidu.unbiz.*.demo.test。
+## 3.2.1 service上通过注解定义task
+1、在普通service类上打@TaskService注解，在需要定义为并行组件的方法上打@TaskBean注解，其中属性为task的名称。即完成并行task的定义。
 ```java
-public static synchronized Singleton getInstance() {
-    if (instance == null) {
-        instance = new Singleton();
+@TaskService
+public class DevicePlanStatServiceImpl implements DevicePlanStatService {
+  @TaskBean("deviceStatFetcher")
+  public List<DeviceStatViewItem> queryPlanDeviceData(DeviceStatRequest req) {
+        this.checkParam(req);
+        return this.mockList1();
     }
-    return instance;
+
+  @TaskBean("deviceUvFetcher")
+  public List<DeviceUvViewItem> queryPlanDeviceUvData(DeviceUvRequest req) {
+        this.checkParam(req);
+        return this.mockList2();
+    }
 }
 ```
-但是每次调用每次调用getInstance()时都需要进行线程锁定判断，在多线程高并发访问环境中，将会导致系统性能大大降低。
-
-## 双重校验锁
-
-双重检查锁定(Double-Check Locking)，是一种使用同步块加锁的方法。因为会有两次检查 instance == null，一次是在同步块外，一次是在同步块内。
-
+2、除注解定义方式外，还可以显示通过实现接口的方式定义并行task。
 ```java
-  public class Singleton {   
-    //
-    private volatile static Singleton instance = null;   
+@Service
+public class ExplicitDefTask 
+    implements Taskable<List<DeviceViewItem>> {
 
-    private Singleton() { }   
-
-    public static Singleton getInstance() {   
-        //第一重判断  
-        if (instance == null) {  
-            //锁定代码块  
-            synchronized (Singleton.class) {  
-                //第二重判断  
-                if (instance == null) {  
-                    instance = new Singleton(); //创建单例实例  
-                }  
-            }  
-        }  
-        return instance;   
-    }  
+    public <E> List<DeviceViewItem> work(E request) {
+        if (request instanceof  DeviceRequest) {
+            // do sth;
+            return result;
+        }
+        return null;
+    }
 }
 ```
-
-需要注意的是，如果使用双重检查锁定来实现懒汉式单例类，需要在静态成员变量instance之前增加修饰符volatile，被volatile修饰的成员变量可以确保多个线程都能够正确处理，且该代码只能在JDK 1.5及以上版本中才能正确执行。由于volatile关键字会屏蔽Java虚拟机所做的一些代码优化，可能会导致系统运行效率降低，因此即使使用双重检查锁定来实现单例模式也不是一种完美的实现方式。
-
-## 静态内部类
-
-懒汉式单例饿汉式单例类不能实现延迟加载，不管将来用不用始终占据内存；懒汉式单例类线程安全控制烦琐，而且性能受影响。我们使用一种更好的办法，被称之为Initialization Demand Holder (IoDH)的技术。这种方法使用内部类来实现，我们在单例类中增加一个静态(static)内部类，在该内部类中创建单例对象，再将该单例对象通过getInstance()方法返回给外部使用。
-
-我比较倾向与使用静态内部类的方法，这种方法也是<<Effective Java>>上推荐的。
-
+## 3.2.2 应用定义的task并行处理
+并行task定义完成后，上层应用代码示例如下：
 ```java
-//Initialization on Demand Holder  
-class Singleton {  
-    private Singleton() {  
-    }  
+ @Resource(name = "simpleParallelExePool")
+    private ParallelExePool parallelExePool;
 
-    private static class HolderClass {  
-            private final static Singleton instance = new Singleton();  
-    }  
+    public void testParallelFetch() {
+        DeviceStatRequest req1 = new DeviceStatRequest();
+        DeviceUvRequest req2 = new DeviceUvRequest();
 
-    public static Singleton getInstance() {  
-        return HolderClass.instance;  
-    }  
+        MultiResult ctx = parallelExePool.submit(
+                new TaskPair("deviceStatFetcher", req1),
+                new TaskPair("deviceUvFetcher", req2));
+
+     List<DeviceStatViewItem> stat = ctx.getResult("deviceStatFetcher");
+     List<DeviceUvViewItem> uv = ctx.getResult("deviceUvFetcher");
+
+        Assert.notEmpty(stat);
+        Assert.notEmpty(uv);
+    }
 ```
+此处，deviceStatFetcher、deviceUvFetcher两个task会并行执行，本质上是隐式执行了DevicePlanStatServiceImpl的被@TaskBean注解的两个方法。
+## 3.2.3 Fork-Join模式支持
+对于同构计算，multi-task 、multi-engine非常友好地支持了Fork-Join，示例代码如下：
+```java
+public void testParallelForkJoinFetch() {
+    TaskPair taskPair = new TaskPair("deviceStatFetcher", new DeviceRequest()));
 
-由于静态单例对象没有作为singleton的成员变量直接实例化，所以不会在类加载的时候实例化。所以它是懒汉式的，在第一次调用getInstance的时候，将加载内部类，在内部类中定义static类型的变量instance并初始化，由jvm来保证其线程安全，由于getInstance方法没有任何线程锁定，因此其性能不会造成任何影响。通过这种方法，我们既可以实现懒加载，又可以保证线程安全，所以我认为这是实现单例最方便简单的方式。
+    ForkJoin<DeviceRequest, List<DeviceViewItem>> forkJoin = new ForkJoin<DeviceRequest, List<DeviceViewItem>>() {
 
-## 总结
+    public List<DeviceRequest> fork(DeviceRequest deviceRequest) {
+            List<DeviceRequest> reqs = new ArrayList<DeviceRequest>();
+            reqs.add(deviceRequest);
+            reqs.add(deviceRequest);
+            reqs.add(deviceRequest);
+            return reqs;
+        }
 
-单例模式作为一种目标明确、结构简单、理解容易的设计模式，在软件开发中使用频率相当高，在很多应用软件和框架中都得以广泛应用。
+    public List<DeviceViewItem> join(List<List<DeviceViewItem>> lists) {
+            List<DeviceViewItem> result = new ArrayList<DeviceViewItem>();
+            if (CollectionUtils.isEmpty(lists)) {
+                return result;
+            }
+            for (List<DeviceViewItem> res : lists) {
+                result.addAll(res);
+            }
+            return result;
+        }
+    };
+
+    List<DeviceViewItem> result = parallelExePool.submit(taskPair, forkJoin);
+    Assert.notEmpty(result);
+}
+```
+## 3.2.4 ThreadLocal支持
+Multi-task的执行task缺省情况下会忽略ThreadLocal，如果需要用ThreadLocal进行参数传递，可以做如下配置：
+```java
+TaskContext.attachThreadLocal(MyThreadLocal.instance());
+```
+## 3.2.5分布式Task执行
+以上示例代码均是单机多线程执行，若要分布式多进程执行，只需用new DisTaskPair()替代new TaskPair()即可。单机与分布式共享一套API，并且可以混合执行（既有TaskPair又有DisTaskPair）。 
+```java
+    @Resource(name = "distributedParallelExePool")
+    private ParallelExePool parallelExePool;
+
+    public void testParallelFetch() {
+        DeviceStatRequest req1 = new DeviceStatRequest();
+        DeviceUvRequest req2 = new DeviceUvRequest();
+
+        MultiResult ctx = parallelExePool.submit(
+                new DisTaskPair("deviceStatFetcher", req1),
+                new DisTaskPair("deviceUvFetcher", req2));
+
+     List<DeviceStatViewItem> stat = ctx.getResult("deviceStatFetcher");
+     List<DeviceUvViewItem> uv = ctx.getResult("deviceUvFetcher");
+
+        Assert.notEmpty(stat);
+        Assert.notEmpty(uv);
+    }
+```
+# 3.3 最佳实践
+* 1)   业务场景为单机并行处理，则只引入multi-task组件。
+* 2)   业务场景为分布式并行处理，则建议multi-task、multi-engine、cluster-support一起使用。
+* 3)   无Zookeeper的基础设施，但需分布式并行处理，则建议使用multi-task、multi-engine。
+
+# 4.   程序测试
+对multi-task、multi-engine、cluster-support三个组件进行独立或组装测试。
+## 4.1 测试考虑
+测试代码可参考对应组件的test目录，有相应的测试case。已对多线程或多进程的同构或异构计算，集群支持等进行了较为充分的测试。
+
+*  性能：组件提供并行处理支持，串行改并行后理论上性能会有明显提升。
+*  伸缩性：支持集群横向扩展，弹性伸缩。
+*  扩展性：框架预留扩展接口，支持自定义功能扩展。
+*  可用性（HA）：框架保障元信息同步或服务发现、健康检测等，内部实现HA切换。
+
+# 5.   改进升级
+* 1、   硬件资源探测及反馈。
+* 2、   更多计算模型的支持。
+* 3、   其它…
+
+# 6.   附录
+## 6.1 生产环境实战效果
+线上生产环境的cpu核数较多，以线上某报表服务的机器为例，有24个处理器：
+
+该报表请求会查4份数据，分别耗时：18ms、28ms、29ms、31ms，总时间为106ms。但应用并行化组件multi-task后，仅耗时32ms即完成了该次请求。
+
+## 6.2 Amdahl加速定律
+S = 1 / ( 1 – a + a / n )
+S:  并行处理效果的加速比
+a:   并行计算部分所占比例
+n:   并行处理结点个数
+最小加速比s=1
+n→∞,极限加速比为1/（1-a）
+
+例：若串行代码占整个代码的25%，则并行处理的总体性能不可能超过4。
+总之，林林总总，写了很多，更多示例可以参考test case，欢迎沟通交流。
