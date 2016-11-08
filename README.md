@@ -1,5 +1,5 @@
 #WangChongjie Blog
 
-###[View Live WangChongjie Blog &rarr;](https://wangchongjie.com)
+###[View Live WangChongjie Blog &rarr;](http://wangchongjie.com)
 
-![](http://huangxuan.me/img/blog-desktop.jpg)
+![](http://wangchongjie.com/img/blogpage.png)
