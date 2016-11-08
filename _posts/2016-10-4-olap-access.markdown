@@ -81,8 +81,8 @@ public class GroupViewItem extends BaseItem {
 	@OlapColumn(Constants.COLUMN.CTR)
 	private BigDecimal ctr;//点击率
 	
-private Sting planName;//计划名称
-private Sting groupName;//推广组名称
+	private Sting planName;//计划名称
+	private Sting groupName;//推广组名称
 
 	@Override
 	public void afterAssemble(int timeUnit){
