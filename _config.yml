@@ -83,14 +83,14 @@ friends:
   [
     {
         title: "单机并行MultiTask组件",
-        href: "http://baidu.com/"
+        href: "https://github.com/wangchongjie/multi-task"
     },
     {
         title: "分布式并行MultiEngine框架",
-        href: "http://baidu.com/"
+        href: "https://github.com/wangchongjie/multi-engine"
     },
     {
-        title: "报表领域ORM Olap-Access框架",
-        href: "http://baidu.com/"
+        title: "报表领域模型OlapAccess框架",
+        href: "https://github.com/wangchongjie/olap-access"
     }
 ]
