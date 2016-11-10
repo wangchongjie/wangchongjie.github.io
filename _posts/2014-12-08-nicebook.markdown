@@ -111,8 +111,7 @@ tags:
 ## 网络协议
 
 ```xml
-  《HTTP权威指南》 David Gourley；Brian Tony；Marjorie Sayer；Sailu 
-  Reddy；Anshu Aggarwal
+  《HTTP权威指南》 David Gourley；Brian Tony；Marjorie Sayer；Sailu Reddy；Anshu Aggarwal
   《Java网络编程》 Elliotte Rusty Harold
 ```
 
