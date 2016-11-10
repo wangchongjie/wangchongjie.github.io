@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Java常用设计模式之代码示例"
+title:      "Design Pattern之Java设计模式"
 subtitle:   " \"可复用面向对象的基础.\""
 date:       2016-01-01 16:00:00
 author:     "WangChongjie"
