@@ -1,0 +1,200 @@
+---
+layout:     post
+title:      "在IT巨人的肩膀上继续前行"
+subtitle:   " \"读活书、活读书、读书活.\""
+date:       2014-12-08 19:00:00
+author:     "WangChongjie"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - 技术沉淀
+---
+读一本好书，会让人有一种神清气爽的感觉。互联网相关技术虽然发展飞速，但是有些知识高度抽象，历久弥新，已成经典。有些书适合精读，有些书适合泛读，下面会列一批我读过，觉得还不错的书跟大家分享，其中不乏经典，部分书籍翻阅不下10遍（如算法导论）。书中的内容不见得工作中都会用到，但是能开阔视野，打开思路，看待工作中的问题时，或设计中间件、架构或系统时，可以有更好的大局观和技术感觉。全栈是一种理念，DevOps其实更需要一专多长，T型人才是互联网企业所更青睐的。有理论，有模式，有实践，脚下的路才会走得更坚实。
+
+## 计算机基础
+
+```xml
+  《深入理解计算机系统》 Bryant O.Hallaron
+```
+
+## 操作系统
+
+```xml
+  《鸟哥的Linux私房菜》 鸟哥
+  《深入理解Linux内核》 Daniel P.Bovet;Marco Cesati
+```
+
+## Shell编程
+
+```xml
+《Shell脚本学习指南》 Arnold Robbins
+《sed与awk》 多尔蒂、罗宾斯
+```
+
+## JAVA编程
+
+```xml
+  《Java编程思想》 Bruce Eckel
+  《Effective Java》 Joshua Bloch
+  《Java解惑》 Joshua Bloch；Neal Gafter
+  《深入理解Java虚拟机》 周志明
+  《Java性能优化权威指南》 Charlie Hunt；Binu John
+  《Java并发编程的艺术》 方腾飞；魏鹏；程晓明
+  《Java并发编程实战》 Brian Goetz；Tim Peierls
+  《SCJP考试指南》 Kathy Sierra
+```
+
+## C++编程
+
+```xml
+  《C++ Primer》 Stanley B.Lippman;Josee Lajoie;Barbara E.Moo
+  《C++ 程序设计语言》 Bjarne Sttoustrup
+  《Effect C++》 Scott Meyers
+```
+
+## SCALA语言
+
+```xml
+  《快学SCALA》 Cay S.Horstmann
+```
+
+## 算法基础
+
+```xml
+  《编程之美》 邹欣
+  《编程珠玑》 Jon Bentley
+  《算法导论》 Thomas H.Cormen;Charles E.Leiserson;Rondld L.Rivest;
+  Clifford Stein
+```
+
+## 软件设计原则
+
+```xml
+  《敏捷软件开发-原则、模式与实践》 Robert C.Martin
+  《重构-改善既有代码的设计》 Martin Fowler
+  《代码大全》 Steve McConnell
+  《设计模式》 四人帮
+```
+
+## 数据存储
+
+```xml
+  《高性能MySQL》 Baron Scbwartz；Peter Zaitser；Vadim Tkacbenko
+```
+
+## 网站架构
+
+```xml
+  《大型分布式瓦格纳站架构设计与实践》 陈康贤
+  《大型网站技术架构-核心原理与案例分析》 李智慧
+  《大规模Web服务开发技术》 伊藤直也；田中慎司
+```
+
+## WEB开发
+
+```xml
+  《深入分析Java Web》 许令波
+  《Web性能权威指南》 Hya Grigorik
+```
+
+## 中间件设计
+
+```xml
+  《大型网站系统与Java中间件实践》 曾宪杰
+```
+
+## WEB容器
+
+```xml
+  《Tomcat权威指南》 Brittain & Darwin
+```
+
+## 网络协议
+
+```xml
+  《HTTP权威指南》 David Gourley；Brian Tony；Marjorie Sayer；Sailu 
+  Reddy；Anshu Aggarwal
+  《Java网络编程》 Elliotte Rusty Harold
+```
+
+## 虚拟化容器
+
+```xml
+  《Docker技术入门与实践》 杨宝华；戴王剑；曹亚仑
+```
+
+## 分布式计算
+
+```xml
+  《Hadoop权威指南》 Tom White
+  《Spark技术内幕》 张安站
+  《Hive编程指南》 Edward Capriolo；Dean Wampler；Jason Rutberglen
+```
+
+## Java框架
+
+```xml
+  《J2EE Development without EJB》 Rod Johnson；Juergen Hoeller
+  《Spring实战》 Craig Walls
+```
+
+## NoSql存储
+
+```xml
+  《MongoDB权威指南》 Kristina Chodorow
+  《NoSQL精粹》 Pramod J.Sadalage;Martin Fowler
+```
+
+## 视觉交互
+
+```xml
+  《写给大家看的设计书》 Robin Williams
+```
+
+## 前端技术
+
+```xml
+  《JavaScript权威指南》 David Flanagan
+  《编写可维护的JavaScript》 Nicbolas C.Zakas
+  《CSS权威指南》 Eric A.Meyer
+  《HTML5揭秘》 Mark Pilgrim
+```
+
+## 行业综述
+
+```xml
+  《计算广告学》 刘鹏
+```
+
+## 技术故事书
+
+```xml
+  《浪潮之巅》 吴军
+  《淘宝技术这十年》 子柳
+  《腾讯之道》 艾永亮；刘官华
+  《京东技术解密》 京东研发
+```
+
+## 数理逻辑
+
+```xml
+  《数学之美》 吴军
+```
+
+## 技术科幻
+
+```xml
+  《奇点临近》 Ray Kurzweil
+  《失控》 Kevin Kelly
+  《野蛮生长》 冯仑
+```
+
+## 经济学
+
+```xml
+  《从零开始读懂金融学》 斯凯恩
+  《经济学原理》 N.Gregory Mankiw
+  《货币金融学》 Frederic S.Mishkin
+```
+
+以上，本书单还会持续更新。活到老，学到老，有言道：一万年太久，只争朝夕！
