@@ -61,7 +61,7 @@ tags:
 ## 算法基础
 
 ```xml
-  《编程之美》 邹欣
+  《编程之美》 邹欣；微软研究院
   《编程珠玑》 Jon Bentley
   《算法导论》 Thomas H.Cormen;Charles E.Leiserson;Rondld L.Rivest;Clifford Stein
 ```
