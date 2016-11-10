@@ -92,5 +92,9 @@ friends:
     {
         title: "报表领域模型OlapAccess框架",
         href: "https://github.com/wangchongjie/olap-access"
+    }，
+    {
+        title: "Java基础DevLib开发库",
+        href: "https://github.com/wangchongjie/DevLib"
     }
 ]
