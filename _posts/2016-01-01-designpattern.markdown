@@ -17,41 +17,41 @@ Christopher Alexander说过："每一个模式描述了一个在我们周围不�
 创建型模式：
 
 ```xml
-	ABSTRACT FACTORY        抽象工厂模式
-	BUILDER                 生成器模式
-	FACTORY METHOD          工厂方法模式
-	PROTOTYPR               原型模式
-	SINGLETON               单例模式
+  ABSTRACT FACTORY        抽象工厂模式
+  BUILDER                 生成器模式
+  FACTORY METHOD          工厂方法模式
+  PROTOTYPR               原型模式
+  SINGLETON               单例模式
 ```
 
 结构型模式：
 
 ```xml
-	ADAPTER                 适配器模式
-	BRIDGE                  桥接模式
-	COMPOSITE               组装模式
-	DECORATOR               装饰器模式
-	FACADE                  外观模式
-	FLYWEIGHT               享元模式
-	PROXY                   代理模式
+  ADAPTER                 适配器模式
+  BRIDGE                  桥接模式
+  COMPOSITE               组装模式
+  DECORATOR               装饰器模式
+  FACADE                  外观模式
+  FLYWEIGHT               享元模式
+  PROXY                   代理模式
 ```
 
 行为模式：
 
 ```xml
-	CHAIN OF RESPONSIBILITY 职责链模式
-	COMMAND                 命令模式
-	INTERPRETER             解释器模式
-	ITERATOR                迭代器模式
-	FACADE                  外观模式
-	MEDIATOR                中介者模式
-	MEMENTO                 备忘录模式
-	OBSERVER                观察者模式
-	STATE                   状态模式
-	TEMPLATE METHOD         模板模式
-	VISITOR                 访问者模式
-	MEMENTO                 备忘录模式
-	STRATEGY                策略模式
+  CHAIN OF RESPONSIBILITY 职责链模式
+  COMMAND                 命令模式
+  INTERPRETER             解释器模式
+  ITERATOR                迭代器模式
+  FACADE                  外观模式
+  MEDIATOR                中介者模式
+  MEMENTO                 备忘录模式
+  OBSERVER                观察者模式
+  STATE                   状态模式
+  TEMPLATE METHOD         模板模式
+  VISITOR                 访问者模式
+  MEMENTO                 备忘录模式
+  STRATEGY                策略模式
 ```
 
 ## ADAPTER模式
