@@ -2,7 +2,7 @@
 layout:     post
 title:      "Design Pattern之Java设计模式"
 subtitle:   " \"可复用面向对象的基础.\""
-date:       2016-01-01 16:00:00
+date:       2015-01-01 16:00:00
 author:     "WangChongjie"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
