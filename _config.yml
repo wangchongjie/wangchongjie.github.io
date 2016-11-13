@@ -96,5 +96,10 @@ friends:
     {
         title: "Java基础DevLib开发库",
         href: "https://github.com/wangchongjie/DevLib"
+    },
+    {
+        title: "分布式存储中间件SQLEngine",
+        href: "https://github.com/wangchongjie/SQLEngine"
     }
+     ]
 ]
