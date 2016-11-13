@@ -98,7 +98,7 @@ friends:
         href: "https://github.com/wangchongjie/DevLib"
     },
     {
-        title: "分布式存储中间件SQLEngine",
+        title: "SQLEngine分布式存储中间件",
         href: "https://github.com/wangchongjie/SQLEngine"
     }
 ]
