@@ -2,7 +2,7 @@
 layout:     post
 title:      "软件系统设计原则综述"
 subtitle:   " \"最佳实践淬炼.\""
-date:       2014-12-08 19:00:00
+date:       2015-02-07 19:00:00
 author:     "WangChongjie"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
