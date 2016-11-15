@@ -41,6 +41,7 @@ tags:
   《Java性能优化权威指南》 Charlie Hunt；Binu John
   《Java并发编程的艺术》 方腾飞；魏鹏；程晓明
   《Java并发编程实战》 Brian Goetz；Tim Peierls
+  《Java8函数式编程》 Richard Warburton
   《SCJP考试指南》 Kathy Sierra
 ```
 
@@ -126,6 +127,7 @@ tags:
 ```xml
   《Hadoop权威指南》 Tom White
   《Spark技术内幕》 张安站
+  《Spark快速大数据分析》 Holden Karau；Andy Konwinski；Patrick Wendell；Matei Zaharia
   《Hive编程指南》 Edward Capriolo；Dean Wampler；Jason Rutberglen
 ```
 
