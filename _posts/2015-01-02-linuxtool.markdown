@@ -66,12 +66,6 @@ Right Things。本文，整理汇总常用的工具命令。
   ^D
 ```
 
-## 带行号grep
-
-```xml
-  grep  –ni
-```
-
 ## 删除其它文件
 
 ```xml
@@ -83,6 +77,12 @@ Right Things。本文，整理汇总常用的工具命令。
 ```xml
   iconv -f gbk -t utf8 in_file > out_file
   iconv -f utf8 -t gbk in_file > out_file
+```
+
+## 带行号grep
+
+```xml
+  grep  –ni
 ```
 
 ## 文件时间戳批量替换
