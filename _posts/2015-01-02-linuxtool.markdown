@@ -7,7 +7,7 @@ author:     "WangChongjie"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
 tags:
-    - 设计模式
+    - 实用工具库
 ---
 开发和生产环境中，我们需要对物理机和平台服务进行治理、监控、运维。用合适的工具做正确的事情，Use The Right Tool Do 
 Right Things。本文，整理汇总常用的工具命令。
