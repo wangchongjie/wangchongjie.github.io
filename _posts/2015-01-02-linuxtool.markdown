@@ -105,7 +105,7 @@ Right Things。本文，整理汇总常用的工具命令。
 
 ## 开发机通过go命令跳转
 
-```xml
+```shell
     #!/bin/sh
     
     tc177="tc-177.wangchongjie.com"
@@ -131,7 +131,7 @@ Right Things。本文，整理汇总常用的工具命令。
 
 ## 查看用户分库信息
 
-```xml
+```python
     #!/bin/env python
     import string
     import sys
