@@ -103,7 +103,7 @@ Right Things。本文，整理汇总常用的工具命令。
   lsof -i :8080
 ```
 
-## 配置开发机间通过go命令跳转
+## 开发机通过go命令跳转
 
 ```xml
     #!/bin/sh
@@ -127,6 +127,33 @@ Right Things。本文，整理汇总常用的工具命令。
             echo "$1 do not match any machine"
         fi
     fi
+```
+
+## 查看用户分库信息
+
+```xml
+    #!/bin/env python
+    import string
+    import sys
+    
+    #useridcode = ((userid >>> tableShardingLength) & (shardingNum-1));
+    
+    tableShardingLength=6
+    shardingNum=8
+    
+    def help():
+        print """Usage: dbu <userid>
+        e.g. dbu 18
+    """
+    
+    if __name__ == "__main__":
+        if len(sys.argv) != 2:
+            help()
+            sys.exit(1)
+        else:
+            userid = string.atoi(sys.argv[1])
+            useridcode = ((userid >> tableShardingLength) & (shardingNum-1));
+            print useridcode
 ```
 
 此外，还有一些强大的工具如sed、awk等，不展开介绍。
