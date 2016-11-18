@@ -103,4 +103,30 @@ Right Things。本文，整理汇总常用的工具命令。
   lsof -i :8080
 ```
 
+## 配置开发机间通过go命令跳转
+
+```xml
+    #!/bin/sh
+    
+    tc177="tc-177.wangchongjie.com"
+    yf155="yf-155.wangchongjie.com"
+    cp104="cp-104.wangchongjie.com"
+    
+    if [ $# -gt 0 ] ; then
+    
+        case "$1" in
+            "tc177" ) host="${tc177}";;
+            "yf155 " ) host="${yf155 }";;
+            "cp104" ) host="${cp104 }";;
+        esac
+    
+        if [ ! -z "${host}" ] ; then
+            echo "ssh work@${host}"
+            ssh "work@${host}”
+        else
+            echo "$1 do not match any machine"
+        fi
+    fi
+```
+
 此外，还有一些强大的工具如sed、awk等，不展开介绍。
