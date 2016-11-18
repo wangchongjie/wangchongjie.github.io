@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "常用Linux工具命令备忘"
+title:      "实用Linux工具命令备忘"
 subtitle:   " \"工欲善其事，必先利其器.\""
 date:       2015-01-02 19:00:00
 author:     "WangChongjie"
