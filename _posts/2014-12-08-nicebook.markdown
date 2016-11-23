@@ -59,6 +59,12 @@ tags:
   《快学SCALA》 Cay S.Horstmann
 ```
 
+## PHP语言
+
+```xml
+  《PHP编程》 Kevin Tatroe；Peter Maclyntyre；Rasmus Lerdorf
+```
+
 ## 算法基础
 
 ```xml
