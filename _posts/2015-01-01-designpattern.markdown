@@ -26,6 +26,7 @@ Christopher Alexander说过："每一个模式描述了一个在我们周围不�
 ```
 
 结构型模式：
+结构型模式主要解决类、对象、模块之间的耦合关系。
 
 ```xml
   ADAPTER                 适配器模式
@@ -38,6 +39,7 @@ Christopher Alexander说过："每一个模式描述了一个在我们周围不�
 ```
 
 行为模式：
+行为模式用来识别对象之间的常用交流模式并加以实现。
 
 ```xml
   CHAIN OF RESPONSIBILITY 职责链模式
