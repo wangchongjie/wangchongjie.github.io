@@ -107,6 +107,7 @@ Right Things。本文，整理汇总常用的工具命令。
 
 ```xml
   dig wangchongjie.com
+  dig -x 192.30.252.154
 ```
 
 ## 开发机通过go命令跳转
