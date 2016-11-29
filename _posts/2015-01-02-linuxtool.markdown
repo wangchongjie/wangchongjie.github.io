@@ -103,6 +103,12 @@ Right Things。本文，整理汇总常用的工具命令。
   lsof -i :8080
 ```
 
+## 查看域名的DNS相关信息
+
+```xml
+  dig wangchongjie.com
+```
+
 ## 开发机通过go命令跳转
 
 ```xml
