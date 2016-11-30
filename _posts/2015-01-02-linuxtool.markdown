@@ -110,6 +110,17 @@ Right Things。本文，整理汇总常用的工具命令。
   dig -x 192.30.252.154
 ```
 
+## 测算程序或命令的执行时间
+
+```xml
+  time ps aux
+  
+  ps aux命令的执行返回结果：
+  real	0m0.031s
+  user	0m0.007s
+  sys	0m0.016s
+```
+
 ## 开发机通过go命令跳转
 
 ```xml
