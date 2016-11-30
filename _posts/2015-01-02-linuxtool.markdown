@@ -152,6 +152,14 @@ Right Things。本文，整理汇总常用的工具命令。
   16:18:27 up 407 days, 23:32, 11 users,  load average: 0.36, 0.12, 0.10
 ```
 
+## 显示机器名内核等信息
+
+```xml
+  uname -a
+  Linux hd01-xxx-111.cj.com 2.8.39_1-18-0-0_virtio #1 SMP Thu 
+  May 14 15:30:56 CST 2015 x86_64 x86_64 x86_64 GNU/Linux
+```
+
 ## 开发机通过go命令跳转
 
 ```xml
