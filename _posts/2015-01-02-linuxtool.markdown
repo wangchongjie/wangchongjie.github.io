@@ -145,6 +145,13 @@ Right Things。本文，整理汇总常用的工具命令。
   vmstat 3
 ```
 
+## 查找Linux开机运行时间
+
+```xml
+  uptime
+  16:18:27 up 407 days, 23:32, 11 users,  load average: 0.36, 0.12, 0.10
+```
+
 ## 开发机通过go命令跳转
 
 ```xml
