@@ -133,6 +133,12 @@ Right Things。本文，整理汇总常用的工具命令。
   find /home/work -name *.gz -exec cp {} /tmp \;
 ```
 
+## 查找进程占用内存情况
+
+```xml
+  ps -aux|awk '{print $4"\t"$11}'|grep -v MEM|sort -r
+```
+
 ## 开发机通过go命令跳转
 
 ```xml
