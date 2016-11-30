@@ -139,6 +139,12 @@ Right Things。本文，整理汇总常用的工具命令。
   ps -aux|awk '{print $4"\t"$11}'|grep -v MEM|sort -r
 ```
 
+## 查找CPU等使用情况
+
+```xml
+  vmstat 3
+```
+
 ## 开发机通过go命令跳转
 
 ```xml
