@@ -127,6 +127,12 @@ Right Things。本文，整理汇总常用的工具命令。
   curl -o index.html wangchongjie.com
 ```
 
+## 查找特定目录下的文件cp至指定目录
+
+```xml
+  find /home/work -name *.gz -exec cp {} /tmp \;
+```
+
 ## 开发机通过go命令跳转
 
 ```xml
