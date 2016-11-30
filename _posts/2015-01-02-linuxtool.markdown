@@ -155,7 +155,7 @@ Right Things。本文，整理汇总常用的工具命令。
 ## 显示当前月份
 
 ```xml
-  cal
+  cal 
       November 2016
   Su Mo Tu We Th Fr Sa
          1  2  3  4  5
