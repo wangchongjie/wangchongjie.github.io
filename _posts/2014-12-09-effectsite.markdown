@@ -10,7 +10,7 @@ tags:
     - 技术沉淀
 ---
 工作实践中各类技术网站可以增强研发效率，了解业务前沿技术动态，本文整理收集技术社区、技术规范、技术组件、技术应用、技术新闻等相关web
-站点，不定期更新：
+站点。
 
 ## maven仓库
 
@@ -27,3 +27,6 @@ tags:
 ## Java组件列表
   
   Awesome-Java：[github.com/wangchongjie/awesome-java](https://github.com/wangchongjie/awesome-java)  
+  
+  
+  未完待续...  
