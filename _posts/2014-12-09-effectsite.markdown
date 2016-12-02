@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Awesome Site List"
-subtitle:   " \"整理汇集技术系列网址.\""
+subtitle:   " \"技术系列网址传送门.\""
 date:       2014-12-09 19:00:00
 author:     "WangChongjie"
 header-img: "img/post-bg-2015.jpg"
