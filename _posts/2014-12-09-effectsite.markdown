@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "高效网站Awesome Site汇总"
+title:      "技术网站Awesome Site List"
 subtitle:   " \"读活书、活读书、读书活.\""
 date:       2014-12-09 19:00:00
 author:     "WangChongjie"
@@ -9,7 +9,7 @@ catalog: true
 tags:
     - 技术沉淀
 ---
-本文整理收集技术相关web站点，不定期更新：
+本文整理收集技术社区、技术规范、技术组件、技术应用、技术新闻等相关web站点，不定期更新：
 
 ## maven仓库
 
