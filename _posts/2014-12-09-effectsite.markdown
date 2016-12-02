@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "技术网站Awesome Site List"
-subtitle:   " \"读活书、活读书、读书活.\""
+title:      "Awesome Site List"
+subtitle:   " \"整理汇集技术系列网址.\""
 date:       2014-12-09 19:00:00
 author:     "WangChongjie"
 header-img: "img/post-bg-2015.jpg"
