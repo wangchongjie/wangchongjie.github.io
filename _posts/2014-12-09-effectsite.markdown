@@ -13,7 +13,7 @@ tags:
 
 ## maven仓库
 
-  Maven中央仓库：[search.maven.org]<http://search.maven.org/>
+  Maven中央仓库：[search.maven.org](http://search.maven.org/)
   Maven镜像仓库：[mvnrepository.com]<http://mvnrepository.com/>
 
 ## 技术社区
