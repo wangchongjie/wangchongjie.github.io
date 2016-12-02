@@ -19,13 +19,13 @@ tags:
 
 ## 技术社区
 
-  开源中国社区：[www.oschina.net](https://www.oschina.net/)
+  开源中国社区：[www.oschina.net](https://www.oschina.net/)  
   
-  InfoQ社区：[www.infoq.com](http://www.infoq.com/)
+  InfoQ社区：[www.infoq.com](http://www.infoq.com/)  
   
-  Java.net社区：[community.oracle.com/community/java](https://community.oracle.com/community/java)
+  Java.net社区：[community.oracle.com/community/java](https://community.oracle.com/community/java)  
   
-  JavaWorld社区：[www.javaworld.com](http://www.javaworld.com/)
+  JavaWorld社区：[www.javaworld.com](http://www.javaworld.com/)  
   
 ## Java组件列表
   
