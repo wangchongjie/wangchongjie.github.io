@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "高效网站AWESOME SITE汇总"
+title:      "高效网站Awesome Site汇总"
 subtitle:   " \"读活书、活读书、读书活.\""
 date:       2014-12-09 19:00:00
 author:     "WangChongjie"
