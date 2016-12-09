@@ -24,6 +24,7 @@ tags:
   Java.net社区：[community.oracle.com/community/java](https://community.oracle.com/community/java)  
   JavaWorld社区：[www.javaworld.com](http://www.javaworld.com/)  
   ItEye社区：[http://www.iteye.com/](http://www.iteye.com/)
+  CSDN社区：[http://www.csdn.net/](http://www.csdn.net/)
  
 ## Java组件列表
   
