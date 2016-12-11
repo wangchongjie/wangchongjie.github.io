@@ -23,9 +23,12 @@ tags:
   InfoQ社区：[www.infoq.com](http://www.infoq.com/)  
   Java.net社区：[community.oracle.com/community/java](https://community.oracle.com/community/java)  
   JavaWorld社区：[www.javaworld.com](http://www.javaworld.com/)  
-  ItEye社区：[http://www.iteye.com/](http://www.iteye.com/)  
-  CSDN社区：[http://www.csdn.net/](http://www.csdn.net/)
+  ItEye社区：[www.iteye.com/](http://www.iteye.com/)  
+  CSDN社区：[www.csdn.net/](http://www.csdn.net/)
  
+## 代码仓库
+  代码仓库：[github.baidu.com](http://github.baidu.com)   
+  
 ## Java组件列表
   
   Awesome-Java：[github.com/wangchongjie/awesome-java](https://github.com/wangchongjie/awesome-java)  
