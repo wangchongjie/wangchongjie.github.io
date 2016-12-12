@@ -25,6 +25,7 @@ tags:
   JavaWorld社区：[www.javaworld.com](http://www.javaworld.com/)  
   ItEye社区：[www.iteye.com/](http://www.iteye.com/)  
   CSDN社区：[www.csdn.net/](http://www.csdn.net/)
+  开发者头条：[toutiao.io/latest](https://toutiao.io/latest)  
  
 ## 代码仓库
 
