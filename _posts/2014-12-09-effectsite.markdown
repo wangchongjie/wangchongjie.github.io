@@ -27,6 +27,10 @@ tags:
   CSDN社区：[www.csdn.net/](http://www.csdn.net/)
   开发者头条：[toutiao.io/latest](https://toutiao.io/latest)  
  
+## 技术规范
+ 
+   W3school：[www.w3school.com.cn](http://www.w3school.com.cn/index.html)  
+ 
 ## 代码仓库
 
   代码仓库：[github.baidu.com](http://github.baidu.com)   
