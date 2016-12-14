@@ -35,6 +35,10 @@ tags:
 
   代码仓库：[github.baidu.com](http://github.baidu.com)   
   
+## 字符转码
+  
+  字符转码：[tool.chinaz.com/tools/unicode.aspx](http://tool.chinaz.com/tools/unicode.aspx)  
+  
 ## Java组件列表
   
   Awesome-Java：[github.com/wangchongjie/awesome-java](https://github.com/wangchongjie/awesome-java)  
