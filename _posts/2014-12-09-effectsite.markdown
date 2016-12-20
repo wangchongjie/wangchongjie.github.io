@@ -24,7 +24,7 @@ tags:
   Java.net社区：[community.oracle.com/community/java](https://community.oracle.com/community/java)  
   JavaWorld社区：[www.javaworld.com](http://www.javaworld.com/)  
   ItEye社区：[www.iteye.com/](http://www.iteye.com/)  
-  CSDN社区：[www.csdn.net/](http://www.csdn.net/)
+  CSDN社区：[www.csdn.net/](http://www.csdn.net/)  
   开发者头条：[toutiao.io/latest](https://toutiao.io/latest)  
  
 ## 技术规范
