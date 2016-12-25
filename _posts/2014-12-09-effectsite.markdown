@@ -39,6 +39,7 @@ tags:
 ## 字符转码
   
   字符转码：[tool.chinaz.com/tools/unicode.aspx](http://tool.chinaz.com/tools/unicode.aspx)  
+  站长工具：[tool.chinaz.com](http://tool.chinaz.com)  
   
 ## Java组件列表
   
