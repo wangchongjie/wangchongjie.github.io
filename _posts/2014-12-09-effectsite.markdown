@@ -39,7 +39,8 @@ tags:
  
 ## 在线刷题
   
-  Leetcode刷题：[https://leetcode.com](https://leetcode.com)  
+  Leetcode刷题：[leetcode.com](https://leetcode.com)  
+  Lintcode刷题：[www.lintcode.com](http://www.lintcode.com/zh-cn/problem/)  
   
 ## 字符转码
   
