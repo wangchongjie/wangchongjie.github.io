@@ -27,6 +27,7 @@ tags:
   CSDN社区：[www.csdn.net/](http://www.csdn.net/)  
   开发者头条：[toutiao.io/latest](https://toutiao.io/latest)  
   编程中国社区：[www.hello-code.com](http://www.hello-code.com/index)  
+  wikipedia百科: [en.wikipedia.org](https://en.wikipedia.org/wiki/Main_Page)  
  
 ## 技术规范
  
