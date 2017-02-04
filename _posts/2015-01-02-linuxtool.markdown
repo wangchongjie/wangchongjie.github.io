@@ -121,6 +121,12 @@ Right Things。本文，整理汇总常用的工具命令。
   sys	0m0.016s
 ```
 
+## 删除当前目录下的所有.git目录
+
+```xml
+  find .  -name ".git" -exec rm -rf {} \;
+```
+
 ## HTTP资源抓取
 
 ```xml
