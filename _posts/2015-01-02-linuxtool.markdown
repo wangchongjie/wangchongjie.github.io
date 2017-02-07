@@ -127,7 +127,7 @@ Right Things。本文，整理汇总常用的工具命令。
   find .  -name ".git" -exec rm -rf {} \;
 ```
 
-## 找出当前目录最大的几个文件
+## 查找硬盘占用最大的几个文件
 
 ```xml
   du -a|sort -nr|head;
