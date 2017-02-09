@@ -15,6 +15,7 @@ tags:
 ## 官方资料
 
   OpenJDK资料：[openjdk.java.net](http://openjdk.java.net/projects/)  
+  MySQL资料：[dev.mysql.com/doc/internals](https://dev.mysql.com/doc/internals/en/)  
 
 ## maven仓库
 
