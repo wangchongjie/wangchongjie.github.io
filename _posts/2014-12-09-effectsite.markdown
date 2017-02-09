@@ -39,7 +39,8 @@ tags:
  
    W3school：[www.w3school.com.cn](http://www.w3school.com.cn/index.html)  
    Google JavaStyle：[google.github.io/styleguide](https://google.github.io/styleguide/javaguide.html)  
- 
+   Google C++ Style：[google.github.io/styleguide](https://google.github.io/styleguide/cppguide.html)  
+     
 ## 代码仓库
 
   代码仓库：[github.baidu.com](http://github.baidu.com)   
