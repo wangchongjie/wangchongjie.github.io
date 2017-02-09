@@ -19,7 +19,7 @@ tags:
   Spring资料：[spring.io/guides](http://spring.io/guides)  
   wikipedia百科: [en.wikipedia.org](https://en.wikipedia.org/wiki/Main_Page)  
 
-## maven仓库
+## maven仓库 
 
   Maven中央仓库：[search.maven.org](http://search.maven.org/)  
   Maven镜像仓库：[mvnrepository.com](http://mvnrepository.com/)  
