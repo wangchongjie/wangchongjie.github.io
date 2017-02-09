@@ -12,6 +12,10 @@ tags:
 工业实践中各类技术网站可以增强研发效率，了解业务前沿技术动态，本文整理收集技术社区、技术规范、技术组件、技术应用、技术新闻等相关web
 站点。
 
+## 官方资料
+
+  OpenJDK资料：[openjdk.java.net](http://openjdk.java.net/projects/)  
+
 ## maven仓库
 
   Maven中央仓库：[search.maven.org](http://search.maven.org/)  
