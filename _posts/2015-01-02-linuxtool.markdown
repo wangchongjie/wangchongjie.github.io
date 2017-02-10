@@ -192,6 +192,12 @@ Right Things。本文，整理汇总常用的工具命令。
   可以查看文件被哪些进程使用
 ```
 
+## 查看进程的内存占用情况
+
+```xml
+  ps -aux|awk '{print $4"\t"$11}'|grep -v MEM|sort -r|head
+```
+
 ## 显示机器名内核等信息
 
 ```xml
