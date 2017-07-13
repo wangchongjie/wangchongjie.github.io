@@ -32,6 +32,13 @@ Right Things。本文，整理汇总常用的工具命令。
   jstat  -gccause pid 86400 > /tmp/pid.jstat
 ```
 
+## 一行命令启动http服务
+
+```xml
+  命令行：
+  python -m SimpleHTTPServer 8086
+```
+
 ## Redis数据pipeline方式导入
 
 ```xml
