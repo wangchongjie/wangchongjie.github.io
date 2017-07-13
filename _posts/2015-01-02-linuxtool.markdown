@@ -26,7 +26,7 @@ Right Things。本文，整理汇总常用的工具命令。
 ## JAVA Dump内存和线程
 
 ```xml
-  命令行：
+  命令行： 
   jmap -heap:format=b app进程号
   jstack -l tomcat进程号 > out
   jstat  -gccause pid 86400 > /tmp/pid.jstat
