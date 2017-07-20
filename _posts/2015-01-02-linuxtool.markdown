@@ -39,6 +39,13 @@ Right Things。本文，整理汇总常用的工具命令。
   python -m SimpleHTTPServer 8086
 ```
 
+## 打开的file列表
+
+```xml
+  命令行：
+  lsof -p 30297 //显示那些文件被pid为30297的进程打开
+```
+
 ## Redis数据pipeline方式导入
 
 ```xml
